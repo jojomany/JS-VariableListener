@@ -1,0 +1,1 @@
+Simple function to listen variables changing.Get changing variables' info,able to make own functions.Support Mobile-devices，able to log in a div witch is dragabled./监听JS中的参数变化，获取自定义参数变化信息，并支持自定义方法。支持移动设备，可以将自定义的log信息显示在一个可以拖动的DIV中。
