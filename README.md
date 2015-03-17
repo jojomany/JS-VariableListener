@@ -82,5 +82,5 @@ Example/示例
 </body>
 </html>
 ```
-![](http://f.picphotos.baidu.com/album/s%3D900%3Bq%3D90/sign=2b8ae409d4160924d825ae1be43c44c7/359b033b5bb5c9ea88b980bcd139b6003af3b323.jpg)
+![](http://www.baidu.com/img/bdlogo.gif)
 
