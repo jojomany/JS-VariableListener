@@ -47,19 +47,40 @@ Example/示例
 ---
 
 ```
-var variable01=1,
-    variable02=[1,2,3],
-    variable03="Hi~";
-    
-varListen('variable01,variable02',function(res){
-    console.log(res.varLog);
-    alert(res.varName+"Changed")
-    console.log(res.varValue)
-})
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>varListener</title>
+    <script src="varListener.js"></script>
+</head>
+<body>
 
-varLIsten('variable03',function(res){
-    eval(res.varName+"='Thanks~'")
-},1000,true)
+<script >
+    var variable01=1,
+            variable02=[1,2,3],
+            variable03="Hi~";
+
+    varListen('variable01,variable02',function(res){
+        console.log(res.varLog);
+//        alert(res.varName+"Changed")
+        console.log(res.varValue)
+    })
+
+    varListen('variable03,variable01',function(res){
+        if(res.varName=='variable03') {
+            eval(res.varName + "+='Thanks~'")
+        }
+    },1000,true)
+
+</script>
+
+<input type="button" value="ChangeV01" onclick="variable01+=1">
+<input type="button" value="ChangeV02" onclick="variable02.push(0)">
+<input type="button" value="ChangeV03" onclick="variable03+='!'">
+
+</body>
+</html>
 ```
 
 
