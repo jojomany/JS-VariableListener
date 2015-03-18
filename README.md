@@ -10,6 +10,13 @@ Include before the js file witch need to listen variable/在需要监听变量�
 
 Usage/使用方法：
 ----
+
+Grammar/语法
+```
+varListen('variables',callBack(response),pollingTime,showLog)
+```
+
+Arguments/参数介绍
 ```
 var variable01;
 
