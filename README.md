@@ -68,8 +68,10 @@ Example/示例
     })
 
     varListen('variable03,variable01',function(res){
-        if(res.varName=='variable03') {
-            eval(res.varName + "+='Thanks~'")
+        if(res.varName=='variable03') {  //way to select variable from variables you've setted
+                                         //可以通过此方法从你设置的变量中选择你要添加功能的变量
+            eval(res.varName + "+='Thanks~'") //way to handle with variable in response.equal to variable03+='Thanks~'
+                                              //可通过此方法从回调参数中抽取变量并使用。此行代码等同于variable03+='Thanks~'
         }
     },1000,true)
 
