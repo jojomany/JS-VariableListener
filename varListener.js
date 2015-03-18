@@ -6,7 +6,6 @@
  *
  */
 
-
 (function () {
     var down = false;
     var x, y, imgID, varLogBox;
@@ -40,9 +39,10 @@
 
     function moveImage() {
         event.preventDefault();
+        console.log(imgID.offsetWidth)
         if (down) {
-            imgID.style.left = event.x - x + "px";
-            imgID.style.top = event.y - y + "px";
+            imgID.style.left = Math.max(Math.min(event.x - x,window.innerWidth-imgID.offsetWidth) ,0)  + "px";
+            imgID.style.top = Math.max(Math.min(event.y - y,window.innerHeight-imgID.offsetHeight),0)  + "px";
             event.returnValue = false
         }
     }
@@ -51,8 +51,8 @@
         event.preventDefault();
         var touch = e.touches[0];
         if (down) {
-            imgID.style.left = touch.clientX - x + "px";
-            imgID.style.top = touch.clientY - y + "px";
+            imgID.style.left = Math.max(Math.min(touch.clientX - x,window.innerWidth-imgID.offsetWidth) ,0)  + "px";
+            imgID.style.top = Math.max(Math.min(touch.clientY - y,window.innerHeight-imgID.offsetHeight),0)  + "px";
             event.returnValue = false
         }
     }
@@ -101,7 +101,12 @@
                     varLogBox.style.top = 0;
                     varLogBox.style.padding = 3 + "px";
                     varLogBox.style.zIndex = 1001;
-                    //varLogBox.style.width=200+'px';
+                    varLogBox.style.maxWidth = 100+'%';
+                    varLogBox.style.maxHeight = 40+'%';
+                    varLogBox.style.overflow='auto'
+                    if(typeof showLog == 'number') {
+                        varLogBox.style.fontSize = showLog + 'px'
+                    }else{alert('Show log size undefined'+typeof showLog)}
                     varLogBox.onmousedown = dragImage;
                     varLogBox.ontouchstart = dragImageM;
                     document.onmousemove = moveImage;
