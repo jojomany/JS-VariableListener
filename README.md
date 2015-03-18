@@ -32,16 +32,16 @@ function(res){ //Callback.Respose got 3 property: res.varLog ; res.varName ; res
 500, //This listen function based on polling.So this argument can set polling time.Optional, default: `500`ms;
      //本控件的功能基于对变量的轮询，可以通过该参数设置轮询时间。可选项，默认为`500`毫秒。
     
-true //If this boolean argument been setted to true, a div whitch log variables'infos you setted before will be create to the body.
-     //And the Div can be draged to anywhere.Suitable for mobiles. Optional, default: `false`.
-     //如果此参数被设置为true，将会向body添加一个用来显示你所设定的变量信息的div,这个div是可以拖动的。适用于移动设备的测试。
-     //可选项，默认为`false`。
+15 //If this number argument been setted, a div whitch log variables'infos you setted before will be create to the body,and the div's fontSize will be set to this argument.
+     //And the Div can be draged to anywhere.Suitable for mobiles. Optional.
+     //如果此参数被设置，将会向body添加一个用来显示你所设定的变量信息的div,这个div是可以拖动的,而你设定的参数值将决定div的字体大小。
+     //适用于移动设备的测试。可选项。
 )
 ```
-This function can be repeated used to listen multiple variables.You can also set multiple variables in the first arguments,
+This function can be repeated used to listen multiple variables.You can also set multiple variables in the first arguments in one function,
 split variables with `,`.
 
-这个方法可以反复使用，也可以在同一个方法中的第一个参数中设置多个变量的监听。用`,`分隔变量。
+这个方法可以反复使用。也可以在同一个方法中的第一个参数中设置多个变量的监听。用`,`分隔变量。
 
 Example/示例
 ---
@@ -73,7 +73,7 @@ Example/示例
             eval(res.varName + "+='Thanks~'") //way to handle with variable in response.equal to variable03+='Thanks~'
                                               //可通过此方法从回调参数中抽取变量并使用。此行代码等同于variable03+='Thanks~'
         }
-    },1000,true)
+    },1000,20)
 
 </script>
 
