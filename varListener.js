@@ -89,11 +89,10 @@
                 mindex[i] = listener.length;
                 listener[listener.length] = allEval(variable[i])
             }
-            if (showLog) {
+            if (showLog!==undefined) {
                 if (!varLogBox) {
-                    varLogBox = document.createElement("div");
-                    document.body.appendChild(varLogBox);
-                    varLogBox.id = "varLogBox";
+                    document.body.innerHTML+="<div id='varLogBox'></div>"
+                    varLogBox=document.getElementById('varLogBox')
                     varLogBox.style.position = "fixed";
                     varLogBox.style.backgroundColor = "#b5d592";
                     varLogBox.style.left = 0;
@@ -103,9 +102,6 @@
                     varLogBox.style.maxWidth = 100+'%';
                     varLogBox.style.maxHeight = 40+'%';
                     varLogBox.style.overflow='auto'
-                    if(typeof showLog == 'number') {
-                        varLogBox.style.fontSize = showLog + 'px'
-                    }else{alert('Show log size undefined'+typeof showLog)}
                     varLogBox.onmousedown = dragImage;
                     varLogBox.ontouchstart = dragImageM;
                     document.onmousemove = moveImage;
@@ -118,6 +114,9 @@
                         var varP = document.createElement("p");
                         varP.id = variable[i];
                         varP.innerHTML = variable[i] + "=" + allEval(variable[i]);
+                        if(typeof showLog == 'number') {
+                            varP.style.fontSize = showLog + 'px'
+                        }else{if(i==1){alert('Show log size undefined'+typeof showLog)}}
                         varLogBox.appendChild(varP)
                     }
                 }
