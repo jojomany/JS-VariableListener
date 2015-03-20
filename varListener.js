@@ -39,7 +39,6 @@
 
     function moveImage() {
         event.preventDefault();
-        console.log(imgID.offsetWidth)
         if (down) {
             imgID.style.left = Math.max(Math.min(event.x - x,window.innerWidth-imgID.offsetWidth) ,0)  + "px";
             imgID.style.top = Math.max(Math.min(event.y - y,window.innerHeight-imgID.offsetHeight),0)  + "px";
